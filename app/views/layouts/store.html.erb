@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-  <title>Pragprog Books Online Store</title>
+  <title>Amazonian Book Store</title>
 <!-- START:stylesheet -->
   <%= stylesheet_link_tag "depot", :media => "all" %><!-- <label id="code.slt"/> -->
 <!-- END:stylesheet -->
@@ -10,7 +10,7 @@
 <body id="store">
   <div id="banner">
     <%= image_tag("logo.png") %>
-    <%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
+    <%= @page_title || "Amazonian Book Store" %><!-- <label id="code.depot.e.title"/> -->
   </div>
   <div id="columns">
     <div id="side">
@@ -18,6 +18,8 @@
       <a href="http://www..../faq">Questions</a><br />
       <a href="http://www..../news">News</a><br />
       <a href="http://www..../contact">Contact</a><br />
+			<br />
+			<b><%= link_to "Admin", :products %></b>
     </div>
     <div id="main">
       <%= yield :layout %><!-- <label id="code.depot.e.include"/> -->

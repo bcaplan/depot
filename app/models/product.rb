@@ -13,8 +13,7 @@ class Product < ActiveRecord::Base
                       :message => 'must be a URL for a GIF, JPG, or PNG image.'
 
   protected
-    def price_must_be_at_least_a_cent
-      errors.add(:price, 'should be at least 0.01') if price.nil? || price < 0.01
-      
-    end
+  def price_must_be_at_least_a_cent
+    errors.add(:price, 'should be at least 0.01') if price.nil? || price < 0.01
+  end
 end
