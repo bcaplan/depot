@@ -75,4 +75,16 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+  
+  test "should redirect if show bad product id" do
+    get :show, :id => products(:one).id + 100
+    
+    assert_redirected_to products_path
+  end
+  
+  test "should redirect if edit bad product id" do
+    get :edit, :id => products(:one).id + 100
+    
+    assert_redirected_to products_path
+  end
 end

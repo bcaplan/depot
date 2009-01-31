@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @product }
     end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to :controller => "products"
   end
 
   # GET /products/new
@@ -35,6 +37,8 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to :controller => "products"
   end
 
   # POST /products
