@@ -189,7 +189,7 @@ border-bottom: 3px dotted #77d;
 #store .entry form, #store .entry form div {
 display: inline;
 }
-
+/* Start flash messages */
 #error {
   border: 2px solid red;
   padding: 1em;
@@ -205,3 +205,21 @@ display: inline;
   background-color: #D5FFD2;
   font: bold smaller sans-serif;
 }
+/* End flash messages */
+
+/* START:cartmain */
+/* Styles for the cart in the main page */
+
+.cart-title {
+  font: 120% bold;
+}
+
+.item-price, .total-line {
+  text-align: right;
+}
+
+.total-line .total-cell {
+  font-weight: bold;
+  border-top: 1px solid #595;
+}
+/* END:cartmain */
