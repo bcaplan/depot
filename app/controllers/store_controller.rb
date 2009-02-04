@@ -5,12 +5,26 @@ class StoreController < ApplicationController
   end
   
   def add_to_cart
-    @cart = find_cart
-    product = Product.find(params[:id])
-    @cart << product
+    begin
+      product = Product.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid product \"#{params[:id]}\"")
+      flash[:error] = "\"#{params[:id]}\" is an invalid product"
+      redirect_to :action => 'index'
+    else
+      @cart = find_cart
+      @cart << product
+    end
+  end
+  
+  def empty_cart
+    session[:cart] = nil
+    flash[:notice] = "Your cart has been emptied"
+    redirect_to :action => 'index'
   end
 
   private
+  
   def find_cart
     session[:cart] ||= Cart.new
   end

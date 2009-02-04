@@ -189,3 +189,19 @@ border-bottom: 3px dotted #77d;
 #store .entry form, #store .entry form div {
 display: inline;
 }
+
+#error {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #FFCCCC;
+  font: bold smaller sans-serif;
+}
+
+#notice {
+  border: 2px solid green;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #D5FFD2;
+  font: bold smaller sans-serif;
+}
