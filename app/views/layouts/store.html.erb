@@ -3,6 +3,7 @@
 <html>
 <head>
   <title>Amazonian Book Store</title>
+	<%= javascript_include_tag :defaults %>
 <!-- START:stylesheet -->
   <%= stylesheet_link_tag "depot", :media => "all" %><!-- <label id="code.slt"/> -->
 <!-- END:stylesheet -->
@@ -14,6 +15,9 @@
   </div>
   <div id="columns">
     <div id="side">
+	    <div id="cart">
+        <%= render(:partial => "cart", :object => @cart) %>
+      </div>
       <a href="http://www....">Home</a><br />
       <a href="http://www..../faq">Questions</a><br />
       <a href="http://www..../news">News</a><br />
