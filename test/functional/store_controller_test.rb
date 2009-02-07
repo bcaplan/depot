@@ -3,7 +3,7 @@ require 'test_helper'
 class StoreControllerTest < ActionController::TestCase
   test "add_to_cart adds a product to the cart" do
     post :add_to_cart, :id => products(:one).id
-    assert_response :success
+    assert_redirected_to :controller => 'store', :action => 'index'
     assert cart = assigns(:cart)
   end
   

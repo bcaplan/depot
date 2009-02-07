@@ -12,16 +12,20 @@ class StoreController < ApplicationController
       redirect_to_index "\"#{params[:id]}\" is an invalid product", :error
     else
       @cart = find_cart
-      @cart << product
+      @current_item = @cart << product
       respond_to do |format|
-        format.js
+        format.js if request.xhr?
+        format.html {redirect_to_index}
       end
     end
   end
   
   def empty_cart
     session[:cart] = nil
-    redirect_to_index "Your cart has been emptied"
+    respond_to do |format|
+      format.js if request.xhr?
+      format.html {redirect_to_index}
+    end
   end
 
   private

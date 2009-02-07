@@ -15,15 +15,17 @@
   </div>
   <div id="columns">
     <div id="side">
-	    <div id="cart">
-        <%= render(:partial => "cart", :object => @cart) %>
-      </div>
       <a href="http://www....">Home</a><br />
       <a href="http://www..../faq">Questions</a><br />
       <a href="http://www..../news">News</a><br />
       <a href="http://www..../contact">Contact</a><br />
 			<br />
 			<b><%= link_to "Admin", :products %></b>
+			<br />
+			<br />
+			<% hidden_div_if(@cart.items.empty?, :id => "cart") do %>
+        <%= render(:partial => "cart", :object => @cart) %>
+      <% end %>
     </div>
     <div id="main">
 			<% if flash[:notice] -%>
