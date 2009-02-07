@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class StoreControllerTest < ActionController::TestCase
+  test "add_to_cart handles bad product" do
+    post :add_to_cart, :id => 100
+    assert_redirected_to :controller => 'store', :action => 'index'
+    assert flash[:error]
+  end
+  
   test "add_to_cart adds a product to the cart" do
     post :add_to_cart, :id => products(:one).id
     assert_redirected_to :controller => 'store', :action => 'index'
