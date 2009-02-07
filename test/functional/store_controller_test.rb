@@ -1,6 +1,14 @@
 require 'test_helper'
 
 class StoreControllerTest < ActionController::TestCase
+  test "emptying the cart" do
+    post :add_to_cart, :id => products(:one).id
+    assert ! session[:cart].nil?
+    
+    post :empty_cart
+    assert session[:cart].nil?
+  end
+  
   test "add_to_cart handles bad product" do
     post :add_to_cart, :id => 100
     assert_redirected_to :controller => 'store', :action => 'index'
