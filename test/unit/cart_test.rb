@@ -16,10 +16,11 @@ class CartTest < ActiveSupport::TestCase
   
   def test_total_price
     cart = Cart.new
+    total = products(:one).price + products(:two).price
     cart << products(:one)
     cart << products(:two)
     
-    assert_equal 300, cart.total_price
+    assert_equal total, cart.total_price
   end
   
   def test_total_items
@@ -29,4 +30,5 @@ class CartTest < ActiveSupport::TestCase
     
     assert_equal 2, cart.total_items
   end
+    
 end
