@@ -8,7 +8,8 @@
   </tr>
 
 </table>
-  
+
+<%= button_to "Checkout", :action => 'checkout' %>
 <% form_remote_tag :url => { :action => 'empty_cart' } do %>
   <%= submit_tag "Empty cart" %>
 <% end %>

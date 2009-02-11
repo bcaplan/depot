@@ -1,3 +1,6 @@
+page.select("div#notice").each { |div| page[:notice].visual_effect :fade }
+page.select("div#error").each { |div| page[:error].visual_effect :fade }
+
 page.replace_html("cart", :partial => "cart", :object => @cart)
 
 page[:cart].visual_effect :blind_down if @cart.total_items == 1
