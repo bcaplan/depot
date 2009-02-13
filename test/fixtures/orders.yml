@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  address: MyText
-  email: MyString
-  pay_type: MyString
+  name: Bob
+  address: 1234 place
+  email: bob@bob.bob
+  pay_type: cc
 
 two:
-  name: MyString
-  address: MyText
-  email: MyString
-  pay_type: MyString
+  name: Guy
+  address: 4567 street
+  email: guy@guy.guy
+  pay_type: po

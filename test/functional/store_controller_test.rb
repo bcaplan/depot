@@ -2,6 +2,7 @@ require 'test_helper'
 
 class StoreControllerTest < ActionController::TestCase
   test "checkout redirects if cart empty" do
+    @request.session[:cart] = nil
     post :checkout
     
     assert_redirected_to :controller => 'store', :action => 'index'
@@ -10,10 +11,10 @@ class StoreControllerTest < ActionController::TestCase
   
   test "emptying the cart" do
     post :add_to_cart, :id => products(:one).id
-    assert ! session[:cart].nil?
+    assert_not_nil session[:cart]
     
     post :empty_cart
-    assert session[:cart].nil?
+    assert_nil session[:cart]
   end
   
   test "add_to_cart handles bad product" do
