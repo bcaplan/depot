@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class StoreControllerTest < ActionController::TestCase
+  
   test "checkout redirects if cart empty" do
     @request.session[:cart] = nil
     post :checkout
