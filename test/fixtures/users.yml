@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: Bob Ross
+  hashed_password: <%= User.encrypted_password('happytrees', 'love2paint') %>
+  salt: love2paint
+
+two:
+  name: Cookie Monster
+  hashed_password: <%= User.encrypted_password('cookie', 'dough') %>
+  salt: dough
