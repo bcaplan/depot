@@ -5,6 +5,13 @@ class UsersControllerTest < ActionController::TestCase
     @request.session[:user_id] = users(:one).id
   end
   
+  test "should not be able to delete last user" do
+    delete :destroy, :id => users(:one).id
+    assert User.count == 1
+    delete :destroy, :id => users(:two).id
+    assert User.count == 1
+  end
+  
   test "should get index" do
     get :index
     assert_response :success
