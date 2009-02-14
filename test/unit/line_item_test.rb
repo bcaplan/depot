@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LineItemTest < ActiveSupport::TestCase
-  def test_from_cart_item
+  test "from cart item" do
     product = products(:one)
     cart_item = CartItem.new(product)
     line_item = LineItem.from_cart_item(cart_item)
@@ -11,7 +11,7 @@ class LineItemTest < ActiveSupport::TestCase
     assert_equal product.price, line_item.total_price
   end
   
-  def test_from_cart_item_with_many_of_the_same_products
+  test "from cart item with many of the same products" do
     product = products(:one)
     cart_item = CartItem.new(product)
     cart_item.increment_quantity
@@ -23,7 +23,7 @@ class LineItemTest < ActiveSupport::TestCase
     assert_equal cart_item.price, line_item.total_price
   end
   
-  def test_line_item_has_order
+  test "line item has order" do
     line_item = line_items(:one)
     line_item.order = orders(:one)
     line_item.save!

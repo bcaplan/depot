@@ -1,6 +1,14 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  test "product has line item" do
+    product = products(:one)
+    cart_item = CartItem.new(product)
+    line_item = LineItem.from_cart_item(cart_item)
+    
+    assert product.line_items.size == 1
+  end
+  
   test "product has price" do
     product = products(:one)
     product.price = 1000
