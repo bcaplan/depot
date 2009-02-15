@@ -6,10 +6,15 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   test "should not be able to delete last user" do
-    delete :destroy, :id => users(:one).id
-    assert User.count == 1
-    delete :destroy, :id => users(:two).id
-    assert User.count == 1
+    users = User.find(:all)
+    assert_raise RuntimeError do
+      loop do
+        users.first.destroy
+        users.shift
+      end
+    end
+
+    assert_equal 1, users.length
   end
   
   test "should get index" do

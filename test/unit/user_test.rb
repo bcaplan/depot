@@ -1,11 +1,16 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "raises when deleting last user" do
-    User.first.destroy
-    assert_raise RuntimeError do  
-      User.first.destroy
+  test "cannot delete last user" do
+    users = User.find(:all)
+    assert_raise RuntimeError do
+      loop do
+        users.first.destroy
+        users.shift
+      end
     end
+
+    assert_equal 1, users.length
   end
   
   test "authentication with good info" do
