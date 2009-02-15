@@ -14,10 +14,10 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "authentication with good info" do
-    assert_not_nil User.authenticate 'Cookie Monster', 'cookie'
+    assert_not_nil User.authenticate('Cookie Monster', 'cookie')
   end
   
   test "authentication with bad info" do
-    assert_nil User.authenticate 'Person', 'password'
+    assert_nil User.authenticate('Person', 'password')
   end
 end
