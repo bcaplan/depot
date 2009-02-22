@@ -272,3 +272,10 @@ display: inline;
   margin: 0.5em 0;
 }
 /* END:form */
+
+/* START:i18n */
+.locale {
+        float:right;
+        padding-top: 0.2em
+}
+/* END:i18n */
